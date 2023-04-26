@@ -1,5 +1,6 @@
 const buttonStart = document.querySelector('button[data-start]')
 const buttonStop = document.querySelector('button[data-stop]')
+buttonStop.disabled = true
 const body = document.querySelector('body')
 let timerId
 
@@ -10,14 +11,16 @@ function getRandomHexColor() {
 function clickStart(event) {
     timerId = setInterval(() => body.style.backgroundColor = getRandomHexColor(), 1000)
     
-    buttonStart.disabled = true
+  buttonStart.disabled = true
+  buttonStop.disabled = false
 }
 buttonStart.addEventListener('click', clickStart)
 
 function clickStop(event) {
     clearInterval(timerId)
     
-    buttonStart.disabled = false
+  buttonStart.disabled = false
+  buttonStop.disabled = true
 }
 buttonStop.addEventListener('click', clickStop)
 

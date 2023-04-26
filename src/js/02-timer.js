@@ -17,7 +17,8 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
     onClose(selectedDates) {
-        if (selectedDates[0] <= new Date()) {  
+      if (selectedDates[0] <= new Date()) {  
+          buttonStart.disabled = true
             Notify.failure('Please choose a date in the future')
         } else {
             buttonStart.disabled = false
